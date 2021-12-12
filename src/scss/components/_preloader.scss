@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the preloader of the site
+// -----------------------------------------------------------------------------
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/colors" as *;
+
+.preloader {
+    @include flex-center;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background-color: $clr-dark;
+    z-index: 999;
+
+    &.disappear {
+        display: none;
+        visibility: hidden;
+        z-index: -999;
+    }
+}
