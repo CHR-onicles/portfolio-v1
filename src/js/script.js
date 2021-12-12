@@ -6,6 +6,11 @@ const decor_line = document.querySelector(".decor-line");
 const tab_btns = document.querySelectorAll(".main__worked-content-header-list-item-btn");
 const work_info = document.querySelectorAll(".main__worked-content-info");
 const toggleable_items = [sidebar, body, nav_toggle_btn];
+const preloader = document.querySelector(".preloader");
+
+window.addEventListener("load", _ => {
+  setTimeout(_ => preloader.classList.add("disappear") , 1000);
+});
 
 nav_toggle_btn.addEventListener("click", () => {
     toggleable_items.map(item => item.classList.toggle("active"));
