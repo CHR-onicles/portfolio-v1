@@ -1,3 +1,5 @@
+import { header_animation } from "./gsap_animations";
+
 const body = document.getElementById("body");
 const nav_toggle_btn = document.querySelector(".header__navbar-toggle-btn");
 const header_btns = document.querySelectorAll(".header__navbar-list-item");
@@ -9,15 +11,16 @@ const toggleable_items = [sidebar, body, nav_toggle_btn];
 const preloader = document.querySelector(".preloader");
 
 window.addEventListener("load", _ => {
-  setTimeout(_ => preloader.classList.add("disappear") , 1000);
+  setTimeout(_ => preloader.classList.add("disappear"), 1000);
+  header_animation();
 });
 
 nav_toggle_btn.addEventListener("click", () => {
-    toggleable_items.map(item => item.classList.toggle("active"));
+  toggleable_items.map(item => item.classList.toggle("active"));
 });
 
 header_btns.forEach(btn => {
-    btn.addEventListener('click', () => toggleable_items.map(item => item.classList.remove('active')))
+  btn.addEventListener('click', () => toggleable_items.map(item => item.classList.remove('active')))
 })
 
 decor_line.style.width = `${tab_btns[0].clientWidth}px`;
