@@ -1,0 +1,128 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Multi-tab component.
+// -----------------------------------------------------------------------------
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/colors" as *;
+
+.main__worked-content {
+    padding: 3rem 0;
+    flex-direction: column;
+
+    @include mq(small) {
+        flex-direction: row;
+        // outline: 1px solid green;
+    }
+
+    &-header {
+        // outline: 1px solid red;
+        position: relative;
+        @include mq (xsmall) {
+           @include size(min-content);
+        }
+
+        &::before {
+            @include pseudo;
+            @include size(100%, rem(1));
+            top: 99%;
+            background: rgba(grey, .5);
+
+            @include mq(small) {
+                top: 0;
+                left: 0px; // to prevent it from getting covered by the tab btns
+                @include size(rem(2), 100%); // 80% to prevent it from getting too long
+            }
+        }
+
+        &-list {
+            position: relative;
+            overflow: auto hidden;
+            
+            @include mq(small) {
+                flex-direction: column;
+                overflow: auto;
+            }
+
+            &-item {
+                
+                &-btn {
+                    width: 10ch; // bad practice but needed for animation and needs to be updated if content changes
+                    font-size: rem(15);
+                    color: mix(black, $clr-light, 20%);
+                    background: none;
+                    padding:  .7em 1em;
+                    transition: background-color .2s, color .3s .05s;
+                    text-align: center;
+
+                    @include mq(small) {
+                        margin-left: rem(2);
+                    }
+                    
+                    &:hover, &:focus {
+                        color: $clr-accent;
+                        background: $clr-md-dark;
+                    }
+                }
+            }
+        }
+    }
+
+    .decor-line {
+        position: absolute;
+        top: calc(100% - rem(3));
+        left: 0;
+        height: rem(3);
+        background: $clr-accent;
+        z-index: 1;
+        transition: transform .3s ease-out;
+
+        @include mq(small) {
+            // Updated in JS
+            top: 0;
+            left: -1px;
+        }
+    }
+
+    &-info {
+        display: none;
+        // transform: scale(0);
+        overflow: hidden;
+        margin: 3rem 0;
+        transition: display .1s;
+        // outline: 1px solid yellow;
+
+        @include mq(small) {
+            margin-top: .5rem;
+            margin-left: 2.5rem;
+        }
+
+        &.active {
+            display: block;
+            // transform: scale(1);
+        }
+
+        &-position {
+            color: $clr-accent-desat;
+            font-size: rem(20);
+            font-weight: 600;
+        }
+
+        &-date {
+            font-size: rem(14);
+            color: mix(black, $clr-light, 20%);
+            margin: .6em 0 .9em;
+        }
+
+        &-list {
+            width: 90%;
+            padding-left: 1.1rem;
+            list-style-image: url("../../assets/icons/flash-outline.svg");
+
+            &-item {
+                margin: .5rem 0;
+                font-size: clamp(rem(15), 5vw, rem(17));
+            }
+        }
+    }
+}

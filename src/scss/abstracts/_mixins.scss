@@ -1,0 +1,93 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+@use '../abstracts/variables' as *;
+@use '../base/colors' as *;
+
+// Ultimate centering of flex children elements
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flex with space between
+@mixin flex-sp-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+// Setup for pseudo elements
+@mixin pseudo {
+  content: "";
+  position: absolute;
+}
+
+// Mixin for media queries
+@mixin mq($key){
+  @media screen and(min-width: map-get($breakpoints-up, $key)){
+    @content;
+  }
+}
+
+// Mixin for absolute vertical centering
+@mixin top-50 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Mixin for absolute horizontal centering
+@mixin left-50 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// Mixin for both horizontal and vertical absolute centering
+@mixin top-left-50 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Mixin for using min() with width - Sass throws an error when I use 2 different units
+// Same as `width: min(width, max-width)`
+@mixin width-min($width, $max-width: $width) {
+  width: $width;
+  max-width: $max-width;
+}
+
+// Similar mixin as above but for height
+@mixin height-min($height, $max-height) {
+  height: $height;
+  max-height: $max-height;
+}
+
+// Mixin to merge width and height properties
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Mixin to zoom on images on hover
+@mixin hover-zoom {
+  overflow: hidden;
+  &:hover {
+    img {
+      transform: scale(1.1)
+    }
+  }
+}
+
+// Mixin to shift element to the right on hover 
+@mixin hover-right-shift {
+  transform: translateX(0);
+  transition: transform .3s cubic-bezier(0, 0.85, 0.74, 1);
+
+    &:hover {
+      transform: translateX(10%);
+      color: $clr-accent-hover;
+  }
+}

@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the headings of the Main Section.
+// -----------------------------------------------------------------------------
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use '../base/colors' as *;
+
+.main {
+    margin: 10rem 0;
+
+    &__content {
+        & > * + * {
+            margin-top: 10rem;
+        }
+    }
+
+    &__heading-wrapper {
+        gap: .5rem;
+        overflow: hidden;
+
+        .mh-wrapper {
+            display: flex;
+            gap: .5rem;
+            width: 100%;
+            align-items: center;
+
+            @include mq(medium) {
+                width: 50%;
+            }
+
+            span {
+                height: 1px;
+                flex: 1 1 100%;
+                background: rgba($clr-light, .2);
+            }
+        }
+    }
+
+    &__numbered-heading {
+        display: inline-block;
+        align-self: flex-end;
+        color: $clr-accent;
+        font-weight: 500;
+        // outline: 1px solid red;
+    }
+
+    &__heading {
+        display: inline;
+        white-space: nowrap;
+        // position: relative;
+        letter-spacing: 1px;
+        font-size: clamp(rem(26), 5vw, rem(32));
+        color: $clr-accent-desat;
+    }
+}

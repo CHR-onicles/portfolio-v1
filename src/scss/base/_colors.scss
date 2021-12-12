@@ -1,0 +1,14 @@
+$clr-bg: #f1f5f8;
+
+$clr-white: hsl(0, 0%, 98%);
+$clr-black: hsl(0, 0%, 5%);
+
+$clr-light: hsl(217, 11%, 85%);
+$clr-md: hsl(220, 2%, 20%);
+$clr-md-dark: hsl(220, 5%, 20%);
+$clr-dark: hsl(217, 11%, 15%);
+$clr-dark-alt: hsl(217, 4%, 21%);
+
+$clr-accent: hsl(43, 99%, 70%);
+$clr-accent-desat: mix(white, $clr-accent, 50%);
+// $clr-accent-alt: #ffcd28;

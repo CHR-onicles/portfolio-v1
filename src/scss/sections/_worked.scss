@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Where I've Worked section of the site.
+// -----------------------------------------------------------------------------
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../base/colors' as *;
+
+.main__worked {
+    
+    @include mq(small) {
+        width: 85%;
+        margin-inline: auto;
+
+    }
+}

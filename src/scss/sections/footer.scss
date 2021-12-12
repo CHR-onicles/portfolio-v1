@@ -1,0 +1,86 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the headings of the Footer Section.
+// -----------------------------------------------------------------------------
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use '../base/colors' as *;
+
+.footer {
+
+    &__social-list {
+        justify-content: space-around;
+        max-width: rem(300);
+        margin: 0 auto;
+
+        @include mq(medium) {
+            position: fixed;
+            flex-direction: column;
+            gap: 1rem;
+            left: $navbar-padding;
+            bottom: $footer-social-vline-height;
+
+            &::before {
+                @include pseudo;
+                top: 110%;
+                @include left-50;
+                height: $footer-social-vline-height;
+                width: 2px;
+                background: $clr-light;
+            }
+        }
+
+        &-item {
+
+            &:hover {
+                svg {
+                    stroke: $clr-accent;
+                    transform: translateY(-20%);
+                }
+            }
+
+            svg {
+                stroke: $clr-light;
+                width: rem(20);
+                transition: stroke .2s, transform .2s;
+            }
+        }
+    }
+
+    &__author {
+        font-size: rem(15);
+        text-align: center;
+        color: $clr-light;
+        margin: 1rem 0;
+    }
+    
+    &__author-email {
+        display: none;
+        @include mq(medium) {
+            display: block;
+            position: fixed;
+            right: $navbar-padding;
+            bottom: $footer-social-vline-height;
+            transform-origin: center;
+            writing-mode: vertical-rl;
+            letter-spacing: 2px;
+            // outline: 1px solid red;
+            transition: color .2s, transform .2s;
+
+            &:hover {
+                color: $clr-accent;
+                transform: translateY(-5%);
+            }
+    
+            &::before {
+                @include pseudo;
+                top: 110%;
+                @include left-50;
+                height: $footer-social-vline-height;
+                width: 2px;
+                background: $clr-light;
+            }
+        }
+        font-size: rem(15);
+    }
+}

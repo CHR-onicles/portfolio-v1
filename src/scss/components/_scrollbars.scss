@@ -1,0 +1,50 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the scrollbar component.
+// -----------------------------------------------------------------------------
+@use '../base/colors' as *;
+
+
+body{
+    overflow: overlay; // for scroll bar as overlay
+}
+
+// Sass functions don't  work here
+body::-webkit-scrollbar{
+    width: 15px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background: rgba($clr-accent, 0.3);
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 20px;
+}
+
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba($clr-accent, .8);
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 20px;
+    // repetition is needed for it to work
+}
+
+@media (hover) and (min-width: 48em) {
+    .main__worked-content-header-list::-webkit-scrollbar {
+        height: 7px;
+    }
+    .main__worked-content-header-list::-webkit-scrollbar-thumb {
+        background: rgba($clr-accent-desat, .3);
+        border-radius: 15px;
+    }
+}
+
+@supports (scrollbar-width: thin) {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba($clr-accent,.8) rgba(0,0,0,.2);
+    }
+    .main__worked-content-header-list {
+        scrollbar-color: initial;
+    }
+}

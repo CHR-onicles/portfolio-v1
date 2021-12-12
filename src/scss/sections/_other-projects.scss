@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Other Projects section of the site.
+// -----------------------------------------------------------------------------
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../base/colors' as *;
+
+.main__other-projects {
+    .main__heading {
+        width: 100%;
+        text-align: center;
+    }
+
+    &-card-container {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+
+        @include mq(small) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mq(medium) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}

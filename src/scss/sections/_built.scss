@@ -1,0 +1,16 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the What I've Built section of the site.
+// -----------------------------------------------------------------------------
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/variables' as *;
+@use '../base/colors' as *;
+
+.main__built {
+    &-tag {
+        display: block;
+        margin-top: 1.2rem;
+        font-size: rem(13);
+        color: $clr-accent;
+    }
+}

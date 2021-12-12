@@ -1,0 +1,126 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the navbar component.
+// -----------------------------------------------------------------------------
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/colors" as *;
+
+.header__navbar {
+  @include mq(medium) {
+    padding: 0 $navbar-padding;
+  }
+
+  &-header {
+    @include flex-sp-between;
+    padding: 1rem 0;
+  }
+
+  &-content {
+    @include mq(medium) {
+      @include flex-sp-between;
+    }
+  }
+
+  &-list-wrapper {
+    position: fixed;
+    @include flex-center;
+    inset: 0;
+    background: $clr-dark-alt;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s, opacity 0.3s;
+    z-index: -10;
+    // outline: 1px solid red;
+    
+    @include mq(xsmall) {
+      min-height: rem(568);
+    }
+    
+    @include mq(medium) {
+      position: static;
+      transform: none;
+      inset: unset;
+      width: auto;
+      min-height: auto;
+      background: none;
+      opacity: 1;
+      z-index: initial;
+    }
+
+    &.active {
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 10;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: auto 0;
+    
+    @media screen and (max-width: 53.125em) and (max-height: 31.25em) and (orientation: landscape) {
+      @include height-min(100%, calc(rem(300) - 5rem));
+      // outline: 1px solid red;
+      margin-top: 5rem;
+      overflow-y: scroll;
+    }
+
+    @include mq(medium) {
+      flex-direction: row;
+    }
+
+    &-item {
+      padding: 1rem 0;
+      font-size: rem(14);
+
+      @include mq(medium) {
+        display: flex;
+        padding: 1rem 1rem;
+        margin: auto 0;
+        font-size: rem(15);
+        // outline: 1px solid red;
+      }
+
+      &-num {
+        display: block;
+        color: $clr-accent;
+        text-align: center;
+
+        @include mq(medium) {
+          display: inline-block;
+          margin: auto 0;
+          padding-right: rem(5);
+        }
+      }
+
+      &-text {
+        display: block;
+        text-align: center;
+        transition: color 0.1s;
+
+        &:hover {
+          color: $clr-accent;
+        }
+      }
+    }
+
+    &-item:first-child {
+      margin-top: auto;
+    }
+    &-item:last-child {
+      margin-bottom: auto;
+
+      @include mq(medium) {
+        padding-block: 0;
+      }
+    }
+  }
+}
+
+// to prevent scrolling in body - still necessary???
+body.active {
+  overflow-y: hidden;
+}

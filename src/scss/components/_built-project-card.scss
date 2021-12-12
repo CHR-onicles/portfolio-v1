@@ -1,0 +1,172 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to The Built Section Project card components
+// -----------------------------------------------------------------------------
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/colors" as *;
+
+
+.main__built-project{
+    position: relative;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin: 3rem 0;
+
+    &:nth-child(2) {
+        margin-top: 1.5rem;
+    
+        @include mq(medium) {
+            margin-top: 0;
+        }
+    }
+    
+    @include mq(medium) {
+        box-shadow: none;
+        // outline: 1px solid blue;
+    }
+
+    &:hover {
+        .main__built-project-title {
+            color: $clr-accent;
+        }
+
+        .main__built-project-img-wrapper {
+            filter: none;
+        }
+    }
+
+    &:nth-child(3) {
+        .main__built-tag{
+            @include mq(medium) {
+                text-align: right;
+            }
+        }
+
+        .main__built-project {
+            &-title {
+                @include mq(medium) {
+                    text-align: right;
+                }
+            }
+
+            &-img-wrapper{
+                background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .6)),
+                url('../../assets/projects/project-2.webp') center/cover no-repeat;
+
+                @include mq(medium) {
+                    left: 0;
+                    right: initial;
+                }
+            }
+
+            &-text-content {
+                @include mq(medium) {
+                    padding-right: 0;
+                    margin-left: auto;
+                    // outline: 1px solid red;
+                }
+            }
+
+            &-desc {
+                @include mq(medium) {
+                    text-align: right;
+                }
+            }
+
+            &-stack,
+            &-footer {
+                @include mq(medium) {
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+
+    &-img-wrapper {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .6)),
+        url('../../assets/projects/project-1.webp') center/cover no-repeat;
+        z-index: -1;
+
+        @include mq(medium) {
+            left: initial;
+            right: 0;
+            @include size(55%, 80%);
+            margin: auto 0;
+            background: url('../../assets/projects/project-1.webp') center/cover no-repeat;
+            border-radius: $border-radius;
+            overflow: hidden;
+            filter: sepia();
+            transition: filter .2s;
+            // outline: 1px solid red;
+        }
+    }
+
+    &-text-content {
+        padding: 1rem 1.5rem;
+        // outline: 1px solid red;
+
+        @include mq(small) {
+            padding: 3rem 2rem;
+            width: 90%;
+        }
+        @include mq(medium) {
+            padding: 1rem 1.5rem 1rem 0;
+            width: 70%;
+            // outline: 2px solid red;
+        }
+    }
+
+    &-title {
+        color: $clr-accent-desat;
+        margin-bottom: 1em;
+        font-size: clamp(rem(25), 5vw, rem(29));
+    }
+
+    &-desc {
+        @include mq(medium) {
+            padding: 1rem 2rem 1rem 1.5rem;
+            border-radius: $border-radius;
+            background: $clr-dark-alt;
+        }
+    }
+
+    &-stack {
+        flex-flow: row wrap;
+        column-gap: .8em;
+        margin: 1.1em 0 0;
+        font-size: rem(14);
+
+        @include mq(small) {
+            margin-top: 1.6em;
+        }
+
+        &-item {
+            color: mix(black, $clr-light, 15%);
+        }
+    }
+
+    &-footer {
+        gap: 1rem;
+        margin: 1rem 0;
+
+        @include mq(small) {
+            margin-top: 1.2rem;
+        }
+        
+        &-item {
+
+            &:hover {
+                svg {
+                    stroke: $clr-accent;
+                }
+            }
+            svg {
+                width: rem(22);
+                stroke: $clr-light;
+                transition: stroke .2s;
+            }
+        }
+    }
+}

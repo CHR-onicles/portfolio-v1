@@ -1,0 +1,36 @@
+//---------------------------
+//Typography styles
+//---------------------------
+@use "./colors" as *;
+@use "../abstracts/functions" as *;
+
+body {
+  line-height: 1.5;
+  color: $clr-light;
+  font-family: 'Barlow', sans-serif;
+}
+
+h1,
+h2 {
+  line-height: 1.1;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: rem(24);
+}
+
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+}
+
+.header,
+.main__built-tag,
+.main__contact-small-heading {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+}

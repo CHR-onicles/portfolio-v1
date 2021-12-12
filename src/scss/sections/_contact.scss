@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Contact section of the site.
+// -----------------------------------------------------------------------------
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/variables' as *;
+@use '../base/colors' as *;
+
+.main__contact {
+    width: 85%;
+    margin: 10rem auto 0;
+    text-align: center;
+    
+    .main__heading-wrapper {
+        font-size: rem(15);
+        color: $clr-accent;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 1.5em;
+    }
+
+    &-small-heading {
+        font-size: rem(15);
+        line-height: initial;
+    }
+
+    &-big-heading {
+        margin-bottom: .5em;
+        font-size:  clamp(rem(40), 5vw, rem(60));
+        color: $clr-accent-desat;
+    }
+
+    &-info {
+        text-align: center;
+        font-size: clamp(rem(16), 5vw, rem(18));
+    }
+}

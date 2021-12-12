@@ -1,0 +1,79 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Other Projects Section Project card component
+// -----------------------------------------------------------------------------
+@use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+@use "../base/colors" as *;
+
+.main__other-projects {
+    &-card {
+        background-color: rgba($clr-md, .5);
+        border-radius: $border-radius;
+        padding: 1.7rem 1.3rem;
+        cursor: pointer;
+        transition: transform .2s ease-out;
+
+        &:hover {
+            transform: translateY(-3%);
+
+            .main__other-projects-card-heading {
+                color: $clr-accent-desat;
+            }
+        }
+
+        &-header {
+            justify-content: space-between;
+            align-items: center;
+
+            .icon {
+                stroke: $clr-accent;
+                width: rem(40);
+            }
+
+            svg:not(.icon) {
+                width: rem(22);
+                stroke: $clr-accent-desat;
+                transition: stroke .2s;
+
+                &:hover {
+                    stroke: $clr-accent;
+                }
+            }
+
+            a {
+                padding-inline: .5rem; 
+            }
+
+            a:nth-child(2) {
+                margin-left: auto;
+            }
+
+        }
+
+        &-heading {
+            transition: color .2s;
+        }
+
+        &-text-content {
+            margin-top: 1.2rem;
+
+            & > * {
+                margin-top: .8rem;
+            }
+        }
+
+        &-desc {
+            font-size: rem(17);
+        }
+
+        &-stack-list {
+            gap: 1rem;
+            flex-flow: row wrap;
+            &-item {
+                font-size: rem(15);
+                color: mix(black, $clr-light, 20%);
+            }
+        }
+    }
+}

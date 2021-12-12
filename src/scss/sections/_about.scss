@@ -1,0 +1,142 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the About Me section of the site.
+// -----------------------------------------------------------------------------
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/variables' as *;
+@use '../base/colors' as *;
+
+
+.main__about {
+
+    .row:nth-child(2) {
+        flex-direction: column;
+
+        @include mq(medium) {
+            flex-direction: row;
+            gap: 2rem;
+
+            & > :first-child {
+                flex-basis: 60%;
+            }
+        }
+    }
+
+    &-para {
+        margin-top: 1rem;
+        max-width: 90%;
+    }
+
+    // utility needed for image wrapper
+    .col {
+        position: relative;
+        @include size(fit-content);
+        @include size(-moz-fit-content);
+        margin: 2rem auto 0;
+        // outline: 1px solid red;
+
+        @include mq(xsmall) {
+            margin-top: 4rem;
+        }
+
+        @include mq(medium) {
+            margin-top: 1rem;
+        }
+
+        &::before,
+        &::after{
+            @include pseudo;
+            @include size(100%);
+            border-radius: $border-radius;
+            z-index: -1;
+            transition: transform .3s ease-out;
+        }
+
+        &::before {
+            top: 10%;
+            left: 6%;
+            border: rem(2) solid $clr-accent;
+        }
+
+        &::after {
+            top: -10%;
+            left: -6%;
+            border: rem(2) solid $clr-light;
+        }
+
+        &:hover {
+            &::before {
+                transform: translate(-10%, -6%);
+            }
+
+            &::after {
+                transform: translate(10%, 6%);
+            }
+
+            .main__about-img-wrapper::before {
+                @include mq(medium) {
+                    transform: translate(-100%, 100%);
+                }
+            }
+
+            .main__about-img-wrapper::after {
+                @include mq(medium) {
+                    transform: translate(100%, -100%);
+                }
+            }
+        }
+    }
+
+    &-img-wrapper {
+        position: relative;
+        @include width-min(75vw, rem(350));
+        overflow: hidden;
+        border-radius: $border-radius;
+        // outline: 1px solid red;
+
+        &::before,
+        &::after  {
+            @include mq(medium) {
+                @include pseudo;
+                top: 0;
+                @include size(100%);
+                background: rgba(black, .3);
+                transition: transform .3s ease-out;
+                transform: skew(40deg);
+                z-index: 1;
+            }
+        }
+        
+        &::before {
+            @include mq(medium) {
+                left: -50%;
+            }
+        }
+        &::after {
+            @include mq(medium) {
+                right: -50%;
+            }
+        }
+
+        img {
+            @include size(100%);
+            object-fit: cover;
+        }
+    }
+
+    &-stack-list {
+        @include width-min(100%, rem(300));
+        margin-top: 1.2rem;
+        columns: 2;
+        column-gap: 2rem;
+        padding-left: 1.1rem;
+        list-style-image: url("../../assets/icons/flash-outline.svg"); // If anything asset path problems comes up later, its from here
+        // outline: 1px solid red;
+        
+        &-item{
+            font-size: 1rem;
+        }
+    
+    }
+
+}

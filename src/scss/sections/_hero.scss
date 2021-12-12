@@ -1,0 +1,40 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the hero section of the site.
+// -----------------------------------------------------------------------------
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+@use '../base/colors' as *;
+
+.hero {
+
+    &__intro-text {
+        margin: 3rem 0 1rem;
+        font-weight: 400;
+        font-size: rem(20);
+        color: $clr-accent;
+    }
+
+    &__author-name {
+        color: $clr-accent-desat;
+    }
+    
+    &__author-work {
+        margin: 1rem 0 1.5rem;
+        max-width: 85%;
+        color: mix(white, $clr-dark, 80%);
+    }
+
+    &__author-name,
+    &__author-work {
+        font-size: clamp(rem(40), 8vw, rem(80));
+    }
+
+    &__short-desc {
+        max-width: 85%;
+
+        @include mq(xsmall) {
+            max-width: 60ch;
+        }
+    }
+
+}

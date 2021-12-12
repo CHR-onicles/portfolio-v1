@@ -1,0 +1,58 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+@use '../base/colors' as *;
+
+// Primary Button template - removed if not used more than once here
+%primary-button {
+    display: inline-block;
+    white-space: nowrap;
+    padding: .9em 1.8em;
+    margin: 0 auto;
+    color: $clr-accent;
+    font-size: rem(14);
+    font-weight: 500;
+    letter-spacing: rem(1);
+    border-radius: rem(5);
+    background: none;
+    border: 1px solid $clr-accent;
+    transition: background-color .2s;
+}
+
+
+.header__navbar-toggle-btn{
+    z-index: 99;
+
+    &.active {
+        svg {
+            transform:rotate(45deg);
+        }
+    }
+
+    @include mq(medium) {
+        display: none;
+    }
+    
+    svg {
+        stroke: $clr-accent;
+        width: rem(35);
+        transition: transform .3s ease-out;
+    }
+}
+
+.primary-btn {
+    @extend %primary-button;
+
+    &:hover {
+        background: rgba($clr-accent, 0.1);
+    }
+}
+
+.main__contact {
+    .primary-btn {
+        margin-top: 2rem;
+    }
+}
