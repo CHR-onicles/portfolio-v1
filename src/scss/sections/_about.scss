@@ -8,6 +8,9 @@
 
 
 .main__about {
+    overflow: hidden;
+    padding-block: 1.5rem;
+    // outline: 1px solid red;
 
     .row:nth-child(2) {
         flex-direction: column;
