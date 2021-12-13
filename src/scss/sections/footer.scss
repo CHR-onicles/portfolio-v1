@@ -19,18 +19,24 @@
             gap: 1rem;
             left: $navbar-padding;
             bottom: $footer-social-vline-height;
-
-            &::before {
-                @include pseudo;
-                top: 110%;
-                @include left-50;
-                height: $footer-social-vline-height;
-                width: 2px;
-                background: $clr-light;
-            }
         }
 
+        &-left-bar {
+            position: absolute;
+            top: 110%;
+            @include left-50;
+            height: $footer-social-vline-height;
+            width: 2px;
+            background: $clr-light;
+            transform: scaleY(0);
+            transform-origin: bottom;
+           }
+
         &-item {
+
+            @include mq(medium) {
+                opacity: 0;
+            }
 
             &:hover {
                 svg {
@@ -62,25 +68,32 @@
             right: $navbar-padding;
             bottom: $footer-social-vline-height;
             transform-origin: center;
+            font-size: rem(15);
             writing-mode: vertical-rl;
             letter-spacing: 2px;
-            // outline: 1px solid red;
             transition: color .2s, transform .2s;
+            // outline: 1px solid red;
+
+            a {
+                display: inline-block;
+                opacity: 0;
+            }
 
             &:hover {
                 color: $clr-accent;
                 transform: translateY(-5%);
             }
-    
-            &::before {
-                @include pseudo;
+
+            &-right-bar {
+                position: absolute;
                 top: 110%;
                 @include left-50;
                 height: $footer-social-vline-height;
                 width: 2px;
                 background: $clr-light;
+                transform: scaleY(0);
+                transform-origin: bottom;
             }
         }
-        font-size: rem(15);
     }
 }
