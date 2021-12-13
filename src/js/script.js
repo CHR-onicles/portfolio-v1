@@ -1,4 +1,4 @@
-import { header_animation } from "./gsap_animations";
+import { master } from "./gsap_animations";
 
 const body = document.getElementById("body");
 const nav_toggle_btn = document.querySelector(".header__navbar-toggle-btn");
@@ -11,8 +11,10 @@ const toggleable_items = [sidebar, body, nav_toggle_btn];
 const preloader = document.querySelector(".preloader");
 
 window.addEventListener("load", _ => {
-  setTimeout(_ => preloader.classList.add("disappear"), 1000);
-  header_animation();
+  setTimeout(_ => {
+    preloader.classList.add("disappear");
+    master();
+  }, 1000);
 });
 
 nav_toggle_btn.addEventListener("click", () => {
