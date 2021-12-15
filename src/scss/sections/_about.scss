@@ -10,15 +10,23 @@
 .main__about {
     overflow: hidden;
     padding-block: 1.5rem;
-    outline: 1px solid red;
+    // outline: 1px solid red;
 
     .row:nth-child(2) {
         flex-direction: column;
 
         @include mq(medium) {
             flex-direction: row;
-            gap: 2rem;
+            gap: 0;
             // outline: 1px solid yellow;
+
+            & > :first-child {
+                flex-basis: 57%;
+            }
+        }
+
+        @include mq(large) {
+            gap: 1rem;
 
             & > :first-child {
                 flex-basis: 60%;
@@ -37,7 +45,8 @@
         @include size(fit-content);
         @include size(-moz-fit-content);
         margin: 2rem auto 0;
-        // outline: 1px solid red;
+        // outline: 2px solid purple;
+        border-radius: 50%;
 
         @include mq(xsmall) {
             margin-top: 4rem;
@@ -45,81 +54,67 @@
 
         @include mq(medium) {
             margin-top: 1rem;
+
+            b {
+                position: absolute;
+                border-radius: 50%;
+                background-color: transparent;
+                border: 2px solid transparent;
+            }
+            
+            b:nth-child(1) {
+                @include size(105%);
+                top: -2.5%;
+                left: -2.5%;
+            }
+            b:nth-child(2) {
+                @include size(110%);
+                top: -5%;
+                left: -5%;
+            }
+            b:nth-child(3) {
+                @include size(115%);
+                top: -7.5%;
+                left: -7.5%;
+            }
         }
 
-        &::before,
-        &::after{
-            @include pseudo;
-            @include size(100%);
-            border-radius: $border-radius;
-            z-index: -1;
-            transition: transform .3s ease-out;
-        }
-
-        &::before {
-            top: 10%;
-            left: 6%;
-            border: rem(2) solid $clr-accent;
-        }
-
-        &::after {
-            top: -10%;
-            left: -6%;
-            border: rem(2) solid $clr-light;
-        }
+        
 
         &:hover {
-            &::before {
-                transform: translate(-10%, -6%);
+            .main__about-img-wrapper {
+                border-color: transparent;
             }
-
-            &::after {
-                transform: translate(10%, 6%);
+            b {
+                transition: border-color .4s .3s ease-out;
             }
-
-            .main__about-img-wrapper::before {
-                @include mq(medium) {
-                    transform: translate(-100%, 100%);
-                }
+            b:nth-child(1) {
+                border-color: $clr-accent transparent transparent transparent;
+                animation: anim 5s .5s linear infinite forwards;
             }
-
-            .main__about-img-wrapper::after {
-                @include mq(medium) {
-                    transform: translate(100%, -100%);
-                }
+            b:nth-child(2) {
+                border-color: transparent transparent transparent $clr-light;                
+                animation: anim 7s .5s linear infinite;
+            }
+            b:nth-child(3) {
+                border-color: transparent $clr-accent-desat transparent transparent;                
+                animation: anim 10s .5s  linear infinite;
             }
         }
     }
 
     &-img-wrapper {
         position: relative;
-        @include width-min(75vw, rem(350));
+        @include size(rem(260));
         overflow: hidden;
-        border-radius: $border-radius;
+        border: 4px solid transparent;
+        border-color: transparent $clr-light transparent $clr-accent;
+        border-radius: 50%;
+        transition: border-color .3s;
         // outline: 1px solid red;
-
-        &::before,
-        &::after  {
-            @include mq(medium) {
-                @include pseudo;
-                top: 0;
-                @include size(100%);
-                background: rgba(black, .3);
-                transition: transform .3s ease-out;
-                transform: skew(40deg);
-                z-index: 1;
-            }
-        }
         
-        &::before {
-            @include mq(medium) {
-                left: -50%;
-            }
-        }
-        &::after {
-            @include mq(medium) {
-                right: -50%;
-            }
+        @include mq(medium) {
+            @include size(rem(300));
         }
 
         img {
@@ -143,4 +138,13 @@
     
     }
 
+}
+
+@keyframes anim {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
