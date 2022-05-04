@@ -1,4 +1,4 @@
-gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);     
+gsap.registerPlugin(CSSRulePlugin, ScrollTrigger);
 
 export const master = () => {
     let master_tl = gsap.timeline();
@@ -49,9 +49,9 @@ const footer_animation = () => {
 
         let footer_tl = gsap.timeline();
         footer_tl.to(left_bar, { scaleY: 1, duration: .5, ease: 'Power2.inOut' })
-            .to(right_bar, {scaleY: 1, duration: .5, ease: 'Power2.inOut'}, '')
-            .to(social_icons, {opacity: 1, y: 0, duration: .3, stagger: -.1})
-            .to(author_email, {opacity: 1, duration: .5, y: 0}, '-=.3')
+            .to(right_bar, { scaleY: 1, duration: .5, ease: 'Power2.inOut' }, '')
+            .to(social_icons, { opacity: 1, y: 0, duration: .3, stagger: -.1 })
+            .to(author_email, { opacity: 1, duration: .5, y: 0 }, '-=.3')
 
     }
 }
@@ -59,7 +59,7 @@ const footer_animation = () => {
 const about_me_animation = () => {
     const hide = (elem) => {
         /* Helper function to make sure elements start animation completely invisible*/
-        gsap.set(elem, {opacity: 0});
+        gsap.set(elem, { opacity: 0 });
     }
 
     if (window.matchMedia('(min-width: 62em').matches) { // >= 992px
@@ -72,8 +72,8 @@ const about_me_animation = () => {
             trigger: '.section-reveal',
             start: 'top: 70%',
             onEnter: () => {
-                about_tl.fromTo(first_child,{x: -20, y: 35}, {duration: 1.5, x: 0, y: 0, ease: 'expo', opacity: 1})
-                    .fromTo(second_child,{x: 40, scale: 0}, {duration: 2, ease: 'expo', opacity: 1, x: 0, scale: 1}, '-=1')
+                about_tl.fromTo(first_child, { x: -20, y: 35 }, { duration: 1.5, x: 0, y: 0, ease: 'expo', opacity: 1 })
+                    .fromTo(second_child, { x: 40, scale: 0 }, { duration: 2, ease: 'expo', opacity: 1, x: 0, scale: 1 }, '-=1')
             },
             once: true,
         })
@@ -82,11 +82,11 @@ const about_me_animation = () => {
         gsap.utils.toArray(['.about-reveal', '.tech-reveal']).forEach(item => {
             const show = (elem) => {
                 const values = [-30, 30]
-                gsap.fromTo(elem, {opacity: 0, x: values[Math.floor(Math.random() * 2)]}, {duration: 1.5, x: 0, opacity: 1, ease: 'expo', stagger: .5 })
+                gsap.fromTo(elem, { opacity: 0, x: values[Math.floor(Math.random() * 2)] }, { duration: 1.5, x: 0, opacity: 1, ease: 'expo', stagger: .5 })
             }
-    
+
             hide(item);
-    
+
             ScrollTrigger.create({
                 trigger: item,
                 start: 'top 80%',
@@ -101,7 +101,7 @@ const about_me_animation = () => {
         ScrollTrigger.create({
             trigger: '.image-reveal',
             start: 'top: 65%',
-            onEnter: () => gsap.fromTo('.image-reveal', {rotation: 20}, {opacity: 1, duration: 1, rotation: 0, ease: 'linear' }),
+            onEnter: () => gsap.fromTo('.image-reveal', { rotation: 20 }, { opacity: 1, duration: 1, rotation: 0, ease: 'linear' }),
             once: true,
         })
     }
