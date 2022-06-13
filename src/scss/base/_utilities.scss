@@ -27,8 +27,10 @@
         max-width: var(--max-width-2);
     }
     @include mq(large) {
-        --max-width-2: 56.25rem; // 900px for inner utility container for larger screens;
+        // --max-width-2: 56.25rem; // 900px for inner utility container for larger screens;
+        --max-width-2: 59.375rem; // 950px...;
         max-width: var(--max-width-2);
+        // outline: 1px solid red;
     }
 }
 

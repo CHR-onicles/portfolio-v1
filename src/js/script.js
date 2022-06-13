@@ -14,7 +14,7 @@ window.addEventListener("load", _ => {
   setTimeout(_ => {
     preloader.classList.add("disappear");
     master();
-  }, 1000);
+  }, 0);
 });
 
 nav_toggle_btn.addEventListener("click", () => {

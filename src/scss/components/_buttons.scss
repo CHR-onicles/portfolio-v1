@@ -15,8 +15,8 @@
     color: $clr-accent;
     font-size: rem(14);
     font-weight: 500;
-    letter-spacing: rem(1);
-    border-radius: rem(5);
+    letter-spacing: 0.03em;
+    border-radius: rem(25);
     background: none;
     border: 1px solid $clr-accent;
     transition: background-color .2s;

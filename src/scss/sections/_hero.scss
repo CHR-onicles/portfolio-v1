@@ -19,7 +19,7 @@
     }
     
     &__author-work {
-        margin: 1rem 0 1.5rem;
+        margin-top: 1rem;
         max-width: 85%;
         color: mix(white, $clr-dark, 80%);
     }
@@ -30,10 +30,15 @@
     }
 
     &__short-desc {
+        margin-top: 2rem;
         max-width: 85%;
 
         @include mq(xsmall) {
-            max-width: 60ch;
+            max-width: 55ch;
+        }
+
+        @include mq(medium) {
+            margin-top: 2.5rem;
         }
     }
 

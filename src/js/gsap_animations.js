@@ -11,22 +11,24 @@ export const master = () => {
     master_tl.add(footer_animation, ">2")
 }
 
+// animation for nav items
 const header_animation = () => {
     const navbar_logo = document.querySelector('.header__navbar-logo');
     const navbar_toggle_btn = document.querySelector('.header__navbar-toggle-btn');
     const nav_list_items = [document.querySelectorAll('.header__navbar-list-item')];
 
     if (window.matchMedia('(max-width: 61.9375em)').matches) { // < 992px
-        let small_nav_tl = gsap.timeline({ defaults: { duration: .7, opacity: 0, ease: 'Power1.easeOut' } });
-        small_nav_tl.from(navbar_logo, { y: -30 })
-            .from(navbar_toggle_btn, { y: 30 }, '')
+        let small_nav_tl = gsap.timeline({ defaults: { duration: .8 } });
+        small_nav_tl.from(navbar_logo, { opacity: 0})
+            .from(navbar_toggle_btn, { opacity: 0 }, '')
     } else {
         let big_nav_tl = gsap.timeline();
         big_nav_tl.from(navbar_logo, { x: -50, duration: 1, ease: 'bounce' })
-            .from(nav_list_items, { opacity: 0, x: -30, stagger: .2, duration: .3, ease: 'power1' })
+            .from(nav_list_items, { opacity: 0, x: -25, stagger: .15, duration: .25, ease: 'power1' })
     }
 }
 
+//animation for hero items
 const hero_animation = () => {
     const hero_items = [
         document.querySelector('.hero__intro-text'),
@@ -35,9 +37,10 @@ const hero_animation = () => {
         document.querySelector('.hero__short-desc')
     ]
     let hero_tl = gsap.timeline();
-    hero_tl.to(hero_items, { opacity: 1, duration: .5, y: 30, stagger: .3 })
+    hero_tl.to(hero_items, { opacity: 1, duration: .4, y: 30, stagger: .2, ease: 'power1' })
 }
 
+// animation for sticky footer
 const footer_animation = () => {
     if (window.matchMedia('(min-width: 62em)').matches) { // >= 992px
         // CSSRulePlugin does not work well with pseudo elements/ Sass (idk yet) 
@@ -56,6 +59,7 @@ const footer_animation = () => {
     }
 }
 
+// animation for about me section
 const about_me_animation = () => {
     const hide = (elem) => {
         /* Helper function to make sure elements start animation completely invisible*/
