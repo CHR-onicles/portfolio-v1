@@ -8,7 +8,7 @@ export const master = () => {
     if (window.matchMedia('(min-width: 62em)').matches) { // >= 992px
         master_tl.add(hero_animation, ">2");
     } else master_tl.add(hero_animation, ">1");
-    master_tl.add(footer_animation, ">2")
+    master_tl.add(footer_animation, ">1")
 }
 
 // animation for nav items
