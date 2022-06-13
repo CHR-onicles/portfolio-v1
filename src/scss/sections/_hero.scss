@@ -8,13 +8,14 @@
 .hero {
 
     &__intro-text {
-        margin: 3rem 0 1rem;
+        margin-top: 3rem;
         font-weight: 400;
         font-size: rem(20);
         color: $clr-accent;
     }
 
     &__author-name {
+        margin-top: 1rem;
         color: $clr-accent-desat;
     }
     
@@ -42,11 +43,15 @@
         }
     }
 
+    &__cta {
+        margin-top: 3rem;
+    }
+
     &__intro-text,
     &__author-name,
     &__author-work,
-    &__short-desc {
+    &__short-desc,
+    &__cta {
         opacity: 0;
     }
-
 }

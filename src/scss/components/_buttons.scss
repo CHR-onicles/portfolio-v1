@@ -7,10 +7,9 @@
 @use '../base/colors' as *;
 
 // Primary Button template - removed if not used more than once here
-%primary-button {
+%shared-button {
     display: inline-block;
     white-space: nowrap;
-    padding: .9em 1.8em;
     margin: 0 auto;
     color: $clr-accent;
     font-size: rem(14);
@@ -19,40 +18,61 @@
     border-radius: rem(25);
     background: none;
     border: 1px solid $clr-accent;
-    transition: background-color .2s;
-}
-
-
-.header__navbar-toggle-btn{
-    z-index: 99;
-
-    &.active {
-        svg {
-            transform:rotate(45deg);
-        }
-    }
-
-    @include mq(medium) {
-        display: none;
-    }
-    
-    svg {
-        stroke: $clr-accent;
-        width: rem(35);
-        transition: transform .3s ease-out;
-    }
+    transition: background-color .2s, color .2s;
 }
 
 .primary-btn {
-    @extend %primary-button;
-
+    @extend %shared-button;
+    padding: .8em 1.7em;
+    
     &:hover {
-        background: rgba($clr-accent, 0.1);
+        background: $clr-accent;
+        color: $clr-dark;
     }
 }
 
-.main__contact {
-    .primary-btn {
-        margin-top: 2rem;
+.secondary-btn {
+    @extend %shared-button;
+
+    position: relative;
+    padding: 1em 1.8em;
+    transform: translateX(0);
+    border: none;
+    transition: transform .3s;
+    // outline: 1px solid;
+
+    &:hover {
+        
+        .secondary-btn__circle {
+            width: 108%;
+            background-color: $clr-accent;
+            font-weight: 500;
+        }
+        
+        .secondary-btn__text {
+            transform: translateX(10%);
+            color: $clr-dark;
+        }
     }
+
+    &__circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 1.625rem;
+        border: 1px solid $clr-accent;
+        transition: width .3s ease-out, background-color .3s .3s;
+    }
+
+    &__text {
+        display: block;
+        color: $clr-accent;
+        font-size: rem(14);
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        transform: translateX(0);
+        transition: transform .3s, color .3s .3s;
+    } 
 }

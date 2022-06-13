@@ -7,7 +7,7 @@ export const master = () => {
 
     if (window.matchMedia('(min-width: 62em)').matches) { // >= 992px
         master_tl.add(hero_animation, ">2");
-    } else master_tl.add(hero_animation, ">1");
+    } else master_tl.add(hero_animation, ">2");
     master_tl.add(footer_animation, ">1")
 }
 
@@ -19,22 +19,19 @@ const header_animation = () => {
 
     if (window.matchMedia('(max-width: 61.9375em)').matches) { // < 992px
         let small_nav_tl = gsap.timeline({ defaults: { duration: .8 } });
-        small_nav_tl.from(navbar_logo, { opacity: 0})
+        small_nav_tl.from(navbar_logo, { opacity: 0 })
             .from(navbar_toggle_btn, { opacity: 0 }, '')
     } else {
         let big_nav_tl = gsap.timeline();
         big_nav_tl.from(navbar_logo, { x: -50, duration: 1, ease: 'bounce' })
-            .from(nav_list_items, { opacity: 0, x: -25, stagger: .15, duration: .25, ease: 'power1' })
+            .from(nav_list_items, { opacity: 0, x: -20, stagger: .15, duration: .2, ease: 'power1' })
     }
 }
 
 //animation for hero items
 const hero_animation = () => {
     const hero_items = [
-        document.querySelector('.hero__intro-text'),
-        document.querySelector('.hero__author-name'),
-        document.querySelector('.hero__author-work'),
-        document.querySelector('.hero__short-desc')
+        document.querySelectorAll("[class*='hero__']"),
     ]
     let hero_tl = gsap.timeline();
     hero_tl.to(hero_items, { opacity: 1, duration: .4, y: 30, stagger: .2, ease: 'power1' })
@@ -66,47 +63,29 @@ const about_me_animation = () => {
         gsap.set(elem, { opacity: 0 });
     }
 
-    if (window.matchMedia('(min-width: 62em').matches) { // >= 992px
-        const first_child = document.querySelector('.main__about-text-content');
-        const second_child = document.querySelector('.image-reveal');
-        hide(first_child);
-        hide(second_child);
-        let about_tl = gsap.timeline();
+    // For text part
+    gsap.utils.toArray(['.about-reveal', '.tech-reveal']).forEach(item => {
+        const show = (elem) => {
+            gsap.fromTo(elem, { opacity: 0, y: 40 }, { duration: .8, y: 0, opacity: 1, ease: 'expo', stagger: .4 })
+        }
+
+        hide(item);
+
         ScrollTrigger.create({
-            trigger: '.section-reveal',
-            start: 'top: 70%',
-            onEnter: () => {
-                about_tl.fromTo(first_child, { x: -20, y: 35 }, { duration: 1.5, x: 0, y: 0, ease: 'expo', opacity: 1 })
-                    .fromTo(second_child, { x: 40, scale: 0 }, { duration: 2, ease: 'expo', opacity: 1, x: 0, scale: 1 }, '-=1')
-            },
+            trigger: item,
+            start: 'top 80%',
+            onEnter: () => show(item),
             once: true,
+            // markers: true,
         })
-    } else {
-        // For text part
-        gsap.utils.toArray(['.about-reveal', '.tech-reveal']).forEach(item => {
-            const show = (elem) => {
-                const values = [-30, 30]
-                gsap.fromTo(elem, { opacity: 0, x: values[Math.floor(Math.random() * 2)] }, { duration: 1.5, x: 0, opacity: 1, ease: 'expo', stagger: .5 })
-            }
+    })
 
-            hide(item);
-
-            ScrollTrigger.create({
-                trigger: item,
-                start: 'top 80%',
-                onEnter: () => show(item),
-                once: true,
-                // markers: true,
-            })
-        })
-
-        // For image part
-        hide('.image-reveal')
-        ScrollTrigger.create({
-            trigger: '.image-reveal',
-            start: 'top: 65%',
-            onEnter: () => gsap.fromTo('.image-reveal', { rotation: 20 }, { opacity: 1, duration: 1, rotation: 0, ease: 'linear' }),
-            once: true,
-        })
-    }
+    // For image part
+    hide('.image-reveal')
+    ScrollTrigger.create({
+        trigger: '.image-reveal',
+        start: 'top: 65%',
+        onEnter: () => gsap.fromTo('.image-reveal', { scale: 0.9 }, { opacity: 1, duration: .8, scale: 1, ease: 'bounce' }),
+        once: true,
+    })
 }

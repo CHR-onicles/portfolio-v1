@@ -8,8 +8,8 @@
 // 2. Base stuff
 @use './base' as *;
 
-// 3. Layout-related sections
-@use'./sections' as *;
-
-// 4. Components
+// 3. Components
 @use './components' as *;
+
+// 4. Layout-related sections - making this one come last as it sometimes overrides component styles
+@use './sections' as *;

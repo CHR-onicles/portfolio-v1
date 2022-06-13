@@ -22,6 +22,26 @@
     }
   }
 
+  &-toggle-btn{
+    z-index: 99;
+
+    &.active {
+        svg {
+            transform:rotate(45deg);
+        }
+    }
+
+    @include mq(medium) {
+        display: none;
+    }
+    
+    svg {
+        stroke: $clr-accent;
+        width: rem(35);
+        transition: transform .3s ease-out;
+    }
+}
+
   &-list-wrapper {
     position: fixed;
     @include flex-center;
@@ -117,7 +137,7 @@
         padding-block: 0;
         a {
           font-weight: 400;
-          font-size: rem(14);
+          font-size: rem(13);
         }
       }
     }

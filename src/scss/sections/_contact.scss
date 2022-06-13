@@ -34,4 +34,8 @@
         text-align: center;
         font-size: clamp(rem(16), 5vw, rem(18));
     }
+
+    &-cta {
+        margin: 2rem 0 3rem;
+    }
 }
