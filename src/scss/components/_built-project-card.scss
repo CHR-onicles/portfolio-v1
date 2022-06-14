@@ -11,20 +11,7 @@
     position: relative;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     margin: 3rem 0;
-
-    &:nth-child(2) {
-        margin-top: 1.5rem;
     
-        @include mq(medium) {
-            margin-top: 0;
-        }
-    }
-    
-    @include mq(medium) {
-        box-shadow: none;
-        // outline: 1px solid blue;
-    }
-
     &:hover {
         .main__built-project-title {
             color: $clr-accent;
@@ -33,6 +20,25 @@
         .main__built-project-img-wrapper {
             filter: none;
         }
+    }
+
+    @include mq(medium) {
+        box-shadow: none;
+        // outline: 1px solid blue;
+    }
+
+    &:nth-child(2) {
+        margin-top: 1.5rem;
+        .main__built-project-img-wrapper {
+            background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .8)),
+            url('../../assets/projects/polymorph.webp') center/cover no-repeat;
+
+            @include mq(medium) {
+                margin-top: 0;
+                background: url('../../assets/projects/polymorph.webp') center/cover no-repeat;
+            }
+        }
+        
     }
 
     &:nth-child(3) {
@@ -50,12 +56,13 @@
             }
 
             &-img-wrapper{
-                background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .6)),
-                url('../../assets/projects/project-2.webp') center/cover no-repeat;
+                background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .8)),
+                url('../../assets/projects/chr-mart.webp') center / cover no-repeat;
 
                 @include mq(medium) {
                     left: 0;
                     right: initial;
+                    background: url('../../assets/projects/chr-mart.webp') center/cover no-repeat;
                 }
             }
 
@@ -82,11 +89,20 @@
         }
     }
 
+    &:nth-child(4) {
+        .main__built-project-img-wrapper {
+            background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .8)),
+            url('../../assets/projects/mountain-club.webp') center/cover no-repeat;
+            
+            @include mq(medium) {
+                background: url('../../assets/projects/mountain-club.webp') center/cover no-repeat;
+            }
+        }
+    }
+
     &-img-wrapper {
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .6)),
-        url('../../assets/projects/project-1.webp') center/cover no-repeat;
         z-index: -1;
 
         @include mq(medium) {
@@ -94,7 +110,6 @@
             right: 0;
             @include size(55%, 80%);
             margin: auto 0;
-            background: url('../../assets/projects/project-1.webp') center/cover no-repeat;
             border-radius: $border-radius;
             overflow: hidden;
             filter: sepia();

@@ -6,6 +6,8 @@
 @use '../base/colors' as *;
 
 .main__other-projects {
+    margin-top: 15rem;
+    
     .main__heading {
         width: 100%;
         text-align: center;
@@ -24,5 +26,12 @@
         @include mq(medium) {
             grid-template-columns: 1fr 1fr 1fr;
         }
+    }
+
+    &-cta {
+        display: block;
+        text-align: center;
+        margin-top: 2rem;
+        width: fit-content;
     }
 }

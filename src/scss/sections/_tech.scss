@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// This file contains all styles related to the Where I've Worked section of the site.
+// This file contains all styles related to the Tech Stack section of the site.
 // -----------------------------------------------------------------------------
 @use '../abstracts/mixins' as *;
 @use '../abstracts/functions' as *;
@@ -7,9 +7,4 @@
 
 .main__worked {
     
-    @include mq(small) {
-        width: 85%;
-        margin-inline: auto;
-
-    }
 }
