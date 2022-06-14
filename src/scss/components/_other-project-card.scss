@@ -8,6 +8,8 @@
 
 .main__other-projects {
     &-card {
+        display: flex;
+        flex-direction: column;
         background-color: rgba($clr-md, .5);
         border-radius: $border-radius;
         padding: 1.7rem 1.3rem;
@@ -56,7 +58,12 @@
         }
 
         &-text-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
             margin-top: 1.2rem;
+            // outline: 1px solid red;
 
             & > * {
                 margin-top: .8rem;
@@ -70,6 +77,10 @@
         &-stack-list {
             gap: 1rem;
             flex-flow: row wrap;
+            align-items: end;
+            flex-grow: 1;
+            // outline: 1px solid blue;
+
             &-item {
                 font-size: rem(15);
                 color: mix(black, $clr-light, 20%);

@@ -11,7 +11,14 @@
     .main__heading {
         width: 100%;
         text-align: center;
+
+        &-summary {
+            margin: 1.5rem auto 0;
+            text-align: center;
+            max-width: 45ch;
+        }
     }
+
 
     &-card-container {
         flex-direction: column;

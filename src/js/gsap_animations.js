@@ -85,7 +85,7 @@ const about_me_animation = () => {
     ScrollTrigger.create({
         trigger: '.image-reveal',
         start: 'top: 65%',
-        onEnter: () => gsap.fromTo('.image-reveal', { scale: 0.9 }, { opacity: 1, duration: .8, scale: 1, ease: 'bounce' }),
+        onEnter: () => gsap.fromTo('.image-reveal', { scale: 1.2 }, { opacity: 1, duration: 1, scale: 1, ease: 'expo' }),
         once: true,
     })
 }
