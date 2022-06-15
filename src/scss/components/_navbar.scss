@@ -33,6 +33,10 @@
     z-index: 99;
     // outline: 1px solid red;
 
+    @include mq(medium) {
+      display: none;
+    }
+
     &.active {
       background-color: $clr-dark-alt;
 
