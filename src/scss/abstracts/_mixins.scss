@@ -70,24 +70,3 @@
   width: $width;
   height: $height;
 }
-
-// Mixin to zoom on images on hover
-@mixin hover-zoom {
-  overflow: hidden;
-  &:hover {
-    img {
-      transform: scale(1.1)
-    }
-  }
-}
-
-// Mixin to shift element to the right on hover 
-@mixin hover-right-shift {
-  transform: translateX(0);
-  transition: transform .3s cubic-bezier(0, 0.85, 0.74, 1);
-
-    &:hover {
-      transform: translateX(10%);
-      color: $clr-accent-hover;
-  }
-}

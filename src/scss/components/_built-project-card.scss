@@ -189,12 +189,10 @@
       opacity: 1;
 
       &::before {
-        content: "";
-        position: absolute;
+        @include pseudo;
         top: 0;
         left: 0;
-        width: 105%;
-        height: 105%;
+        @include size(105%);
         background: $clr-dark;
         transition: transform 0.5s 1.6s;
       }

@@ -7,6 +7,7 @@
 @use "../base/colors" as *;
 
 .header__navbar {
+  // outline: 1px solid red;
   @include mq(medium) {
     padding: 0 $navbar-padding;
   }
@@ -22,25 +23,40 @@
     }
   }
 
-  &-toggle-btn{
+  &-toggle-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include size(32px, 21px);
+    position: relative;
+    align-self: center;
     z-index: 99;
+    // outline: 1px solid red;
 
     &.active {
-        svg {
-            transform:rotate(45deg);
-        }
+      background-color: $clr-dark-alt;
+
+      .bar:nth-child(1) {
+        transform: rotate(408deg) translate(25%, 100%);
+      }
+
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .bar:nth-child(3) {
+        transform: rotate(-408deg) translate(27%, -150%);
+      }
     }
 
-    @include mq(medium) {
-        display: none;
+    .bar {
+      display: block;
+      background-color: $clr-accent;
+      @include size(32px, 3px);
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      border-radius: 2px;
     }
-    
-    svg {
-        stroke: $clr-accent;
-        width: rem(35);
-        transition: transform .3s ease-out;
-    }
-}
+  }
 
   &-list-wrapper {
     position: fixed;
@@ -52,11 +68,11 @@
     transition: transform 0.3s, opacity 0.3s;
     z-index: -10;
     // outline: 1px solid red;
-    
+
     @include mq(xsmall) {
       min-height: rem(568);
     }
-    
+
     @include mq(medium) {
       position: static;
       transform: none;
@@ -80,7 +96,7 @@
     flex-direction: column;
     height: 100%;
     margin: auto 0;
-    
+
     @media screen and (max-width: 53.125em) and (max-height: 31.25em) and (orientation: landscape) {
       @include height-min(100%, calc(rem(300) - 5rem));
       // outline: 1px solid red;
