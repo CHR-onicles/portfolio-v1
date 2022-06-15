@@ -7,6 +7,12 @@
 @use '../base/colors' as *;
 
 .main__built {
+    margin-top: 15rem;
+
+    @include mq(medium) {
+        margin-top: 18rem;
+    }
+
     &-tag {
         display: block;
         margin-top: 1.2rem;

@@ -1,10 +1,129 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the Tech Stack section of the site.
 // -----------------------------------------------------------------------------
-@use '../abstracts/mixins' as *;
-@use '../abstracts/functions' as *;
-@use '../base/colors' as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+@use "../base/colors" as *;
 
-.main__worked {
+.main__tech {
+  margin-top: 15rem;
+
+  @include mq(medium) {
+    margin-top: 18rem;
+  }
+
+  &-list {
+    flex-flow: row wrap;
+    justify-content: center;
+    width: min(100%, rem(652));
+    margin: 2rem auto 0;
+
+    @include mq(large) {
+      min-width: 100%;
+      // outline: 1px solid;
+    }
+
+    &-item {
+      position: relative;
+      padding: 2rem;
+      // outline: 1px solid red;
+      
+      &:hover {
+        .icon {
+            transform: scale(1.1);
+        }
+      }
+      
+      @include mq(large) {
+        padding-inline: 4rem;
+    }
+
+    .icon {
+        width: 5rem;
+        height: 5rem;
+        transition: transform 0.3s ease;
+    }
     
+    [class*="i-"] {
+        position: absolute;
+        background-color: rgba($clr-light, 0.1);
+        transition: background-color .5s ease;
+      }
+
+      .i-left,
+      .i-right {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 70%;
+      }
+
+      .i-top,
+      .i-bottom {
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1px;
+        width: 70%;
+      }
+
+      .i-left {
+        left: 0;
+        display: none;
+      }
+
+      .i-top {
+        top: 0;
+        display: none;
+      }
+
+      .i-right {
+        right: 0;
+      }
+
+      .i-bottom {
+        bottom: 0;
+
+        @include mq(small) {
+          background: rgba($clr-accent, 0.5);
+        }
+      }
+
+      &:nth-child(even) {
+        .i-right {
+          display: none;
+
+          @include mq(small) {
+            display: block;
+          }
+        }
+      }
+
+      &:nth-child(4n) {
+        .i-right {
+          display: none;
+        }
+      }
+
+      &:nth-child(9),
+      &:nth-child(10) {
+        @include mq(small) {
+          .i-bottom {
+            display: none;
+          }
+        }
+      }
+
+      &:nth-child(11) {
+        .i-bottom {
+          display: none;
+        }
+      }
+
+      &:last-child {
+        .i-bottom {
+          display: none;
+        }
+      }
+    }
+  }
 }

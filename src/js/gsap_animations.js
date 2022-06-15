@@ -50,8 +50,8 @@ const footer_animation = () => {
         let footer_tl = gsap.timeline();
         footer_tl.to(left_bar, { scaleY: 1, duration: .5, ease: 'Power2.inOut' })
             .to(right_bar, { scaleY: 1, duration: .5, ease: 'Power2.inOut' }, '')
-            .to(social_icons, { opacity: 1, y: 0, duration: .3, stagger: -.1 })
-            .to(author_email, { opacity: 1, duration: .5, y: 0 }, '-=.3')
+            .to(social_icons, { opacity: 1, y: 0, duration: .3, stagger: -0.1 })
+            .to(author_email, { opacity: 1, duration: .5, y: 0 }, '-=0.3')
 
     }
 }
@@ -64,7 +64,7 @@ const about_me_animation = () => {
     }
 
     // For text part
-    gsap.utils.toArray(['.about-reveal', '.tech-reveal']).forEach(item => {
+    gsap.utils.toArray(['.about-reveal']).forEach(item => {
         const show = (elem) => {
             gsap.fromTo(elem, { opacity: 0, y: 40 }, { duration: .8, y: 0, opacity: 1, ease: 'expo', stagger: .4 })
         }
@@ -80,6 +80,10 @@ const about_me_animation = () => {
         })
     })
 
+    // const paragraphs = [document.querySelectorAll('[class*="about-para]')];
+    //todo: redo paragraphs animation here
+
+
     // For image part
     hide('.image-reveal')
     ScrollTrigger.create({
@@ -88,4 +92,19 @@ const about_me_animation = () => {
         onEnter: () => gsap.fromTo('.image-reveal', { scale: 1.2 }, { opacity: 1, duration: 1, scale: 1, ease: 'expo' }),
         once: true,
     })
+}
+
+export const techGridAniamtion = (color) => {
+    const middle_column_lines = [document.querySelectorAll('.main__tech-list-item:nth-child(odd) .i-right')];
+    const first_row_lines = [document.querySelectorAll('.main__tech-list-item:nth-child(-n+4) .i-bottom')];
+    const second_row_lines = [document.querySelectorAll('.main__tech-list-item:nth-child(n+5):nth-child(-n+8) .i-bottom')] // selector from: (https://stackoverflow.com/a/28061560)
+
+    if (window.matchMedia('(min-width: 48em)').matches) { // from Tablet up (768px)
+        const tl = gsap.timeline();
+        tl.to(first_row_lines, {backgroundColor: color, duration: '0.4', stagger: '0.2'})
+        .to(second_row_lines, {backgroundColor: color, duration: '0.4', stagger: '0.2',}, "");
+    } else {
+        const tl = gsap.timeline();
+        tl.to(middle_column_lines, {backgroundColor: color, duration: '0.4', stagger: '0.2'});
+    }
 }
