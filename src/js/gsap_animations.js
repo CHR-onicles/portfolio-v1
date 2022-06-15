@@ -92,18 +92,41 @@ const about_me_animation = () => {
 
 // Hover animation for tech stack section
 export const techGridAnimation = (color) => {
-    const middle_column_lines = [document.querySelectorAll('.main__tech-list-item:nth-child(odd) .i-right')];
-    const first_row_lines = [document.querySelectorAll('.main__tech-list-item:nth-child(-n+4) .i-bottom')];
-    const second_row_lines = [document.querySelectorAll('.main__tech-list-item:nth-child(n+5):nth-child(-n+8) .i-bottom')]; // selector from: (https://stackoverflow.com/a/28061560)
+    const middle_column_lines_for_2_per_row = document.querySelectorAll('.main__tech-list-item:nth-child(odd) .i-right');
+
+    const first_row_lines_for_3_per_row = document.querySelectorAll('.main__tech-list-item:nth-child(-n+3) .i-bottom');
+    const second_row_lines_for_3_per_row = document.querySelectorAll('.main__tech-list-item:nth-child(n+4):nth-child(-n+6) .i-bottom');
+    const third_row_lines_for_3_per_row = document.querySelectorAll('.main__tech-list-item:nth-child(n+7):nth-child(-n+9) .i-bottom');
+
+    const first_row_lines_for_4_per_row = document.querySelectorAll('.main__tech-list-item:nth-child(-n+4) .i-bottom');
+    const second_row_lines_for_4_per_row = document.querySelectorAll('.main__tech-list-item:nth-child(n+5):nth-child(-n+8) .i-bottom'); // selector from: (https://stackoverflow.com/a/28061560)
+    const tl = gsap.timeline();
+
+    //todo: add event listener for window resize to reset the color of all lines
 
     if (isMatchMediaMinWidth('48em')) { // >= 768px
-        const tl = gsap.timeline();
-        tl.to(first_row_lines, { backgroundColor: color, duration: '0.4', stagger: '0.2' })
-            .to(second_row_lines, { backgroundColor: color, duration: '0.4', stagger: '0.2', }, "");
-    } else {
-        const tl = gsap.timeline();
-        tl.to(middle_column_lines, { backgroundColor: color, duration: '0.4', stagger: '0.2' });
+        tl.to(first_row_lines_for_4_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2' })
+            .to(second_row_lines_for_4_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2', }, "");
+        } else if (isMatchMediaMinWidth('30em')) { // >=480px
+        tl.to(first_row_lines_for_3_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2' })
+            .to(second_row_lines_for_3_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2', }, "")
+            .to(third_row_lines_for_3_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2', }, "");
+    } else { // <480px
+        tl.to(middle_column_lines_for_2_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2' });
     }
+
+    window.addEventListener('resize', () => {
+        const all_colored_lines = [
+            ...middle_column_lines_for_2_per_row,
+            ...first_row_lines_for_3_per_row,
+            ...second_row_lines_for_3_per_row,
+            ...third_row_lines_for_3_per_row,
+            ...first_row_lines_for_4_per_row,
+            ...second_row_lines_for_4_per_row,
+        ];
+
+        gsap.set(all_colored_lines, {backgroundColor: 'rgba(213, 216, 221, 0.1)'});
+    })
 }
 
 // Animation for tech section

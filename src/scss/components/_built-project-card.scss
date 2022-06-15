@@ -261,9 +261,9 @@
 
       // map for transition delays for stack items
       $nums: (
-        1: 1.9,
-        2: 2,
-        3: 2.1,
+        1: 2,
+        2: 2.1,
+        3: 2.2,
       );
 
       $nums-medium: (
@@ -280,9 +280,11 @@
       }
 
       @each $key, $val in $nums-medium {
-        &:nth-child(#{$key}) {
-          transition: opacity 0.3s calc($val * 1s),
-            transform 0.3s calc($val * 1s);
+        @include mq(medium) {
+          &:nth-child(#{$key}) {
+            transition: opacity 0.3s calc($val * 1s),
+              transform 0.3s calc($val * 1s);
+          }
         }
       }
     }
@@ -313,8 +315,8 @@
 
       // map for transition delays for stack items
       $nums: (
-        1: 2.5,
-        2: 2.6,
+        1: 2.6,
+        2: 2.7,
       );
 
       $nums-medium: (
@@ -326,12 +328,14 @@
           transition: opacity 0.3s calc($val * 1s),
             transform 0.3s calc($val * 1s);
         }
-    }
-    
-    @each $key, $val in $nums-medium {
-        &:nth-child(#{$key}) {
-          transition: opacity 0.3s calc($val * 1s),
-            transform 0.3s calc($val * 1s);
+      }
+
+      @each $key, $val in $nums-medium {
+        @include mq(medium) {
+          &:nth-child(#{$key}) {
+            transition: opacity 0.3s calc($val * 1s),
+              transform 0.3s calc($val * 1s);
+          }
         }
       }
     }

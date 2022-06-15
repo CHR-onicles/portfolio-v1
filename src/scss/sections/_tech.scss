@@ -30,7 +30,7 @@
       height: 1px;
       flex-basis: 12%;
       background: rgba($clr-light, 0.2);
-      
+
       @include mq(small) {
         flex-basis: 15%;
       }
@@ -42,6 +42,7 @@
     justify-content: center;
     width: min(100%, rem(652));
     margin: 2rem auto 0;
+    // outline: 1px solid;
 
     @include mq(large) {
       min-width: 100%;
@@ -54,7 +55,9 @@
 
       &:hover {
         .icon {
-          transform: scale(1.1) !important; // slapping !important here because js animation overrides this style
+          transform: scale(
+            1.1
+          ) !important; // slapping !important here because js animation overrides this style
         }
       }
 
@@ -109,33 +112,20 @@
       .i-bottom {
         bottom: 0;
 
-        @include mq(small) {
-          // background: rgba($clr-accent, 0.5);
-        }
+        // @include mq(small) {
+        // background: rgba($clr-accent, 0.5);
+        // }
       }
 
       &:nth-child(even) {
         .i-right {
           display: none;
-
-          @include mq(small) {
-            display: block;
-          }
         }
       }
 
       &:nth-child(4n) {
         .i-right {
           display: none;
-        }
-      }
-
-      &:nth-child(9),
-      &:nth-child(10) {
-        @include mq(small) {
-          .i-bottom {
-            display: none;
-          }
         }
       }
 
@@ -148,6 +138,65 @@
       &:last-child {
         .i-bottom {
           display: none;
+        }
+      }
+
+      // For new width: 480px - Columns break into 3 three here
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(7),
+      &:nth-child(8),
+      &:nth-child(10),
+      &:nth-child(11) {
+        @media screen and (min-width: 30em) {
+          .i-right {
+            display: block;
+          }
+        }
+      }
+
+      &:nth-child(3n) {
+        @media screen and (min-width: 30em) {
+          .i-right {
+            display: none;
+          }
+        }
+      }
+
+      &:nth-child(10) {
+        @media screen and (min-width: 30em) {
+          .i-bottom {
+            display: none;
+          }
+        }
+      }
+
+      // End of 480px ----------------------------------------------
+
+      // For 680px - Columns break into 4 here
+      &:nth-child(n) {
+        @media screen and (min-width: 42.5em) {
+          .i-right {
+            display: block;
+          }
+        }
+      }
+
+      &:nth-child(4n) {
+        @media screen and (min-width: 42.5em) {
+          .i-right {
+            display: none;
+          }
+        }
+      }
+
+      &:nth-child(9) {
+        @media screen and (min-width: 42.5em) {
+          .i-bottom {
+            display: none;
+          }
         }
       }
     }
