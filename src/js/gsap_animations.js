@@ -7,6 +7,7 @@ export const master = () => {
     master_tl.add(header_animation())
         .add(about_me_animation) // adding it here to prevent time delay (maybe not elegant)
         .add(tech_animation)
+        .add(contact_animation)
 
     if (isMatchMediaMinWidth('62em')) { // >= 992px
         master_tl.add(hero_animation, ">2");
@@ -112,7 +113,7 @@ const tech_animation = () => {
 
 
     const show = (elements) => {
-        gsap.fromTo(elements, {y: 10}, { duration: 0.4, y: 0, opacity: 1, ease: 'expo', stagger: 0.1 })
+        gsap.fromTo(elements, { y: 10 }, { duration: 0.4, y: 0, opacity: 1, ease: 'expo', stagger: 0.1 });
         if (isMatchMediaMinWidth('48em')) {
             const tl = gsap.timeline();
             tl.to(first_row_lines, { backgroundColor: 'rgba(254, 211, 103, 0.5)', duration: '0.4', stagger: '0.2' }, "")
@@ -135,3 +136,20 @@ const tech_animation = () => {
 // Animation for Other projects section
 
 // Animation for Contact section
+const contact_animation = () => {
+    const contact_reveal_items = document.querySelectorAll('.contact-reveal');
+    const contact_section = document.getElementById('contact-me');
+
+    const show = (elements) => {
+        gsap.fromTo(elements, { y: 20 }, { duration: 0.8, y: 0, opacity: 1, ease: 'expo', stagger: 0.2 });
+    }
+
+    hide(contact_reveal_items);
+    ScrollTrigger.create({
+        trigger: contact_section,
+        start: 'top 70%',
+        onEnter: () => show(contact_reveal_items),
+        once: true,
+        // markers: true,
+    });
+}
