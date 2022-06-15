@@ -13,7 +13,7 @@ export const master = () => {
 
     if (isMatchMediaMinWidth('62em')) { // >= 992px
         master_tl.add(hero_animation, ">2");
-    } else master_tl.add(hero_animation, ">2");
+    } else master_tl.add(hero_animation, ">0.5");
     master_tl.add(footer_animation, ">1")
 }
 

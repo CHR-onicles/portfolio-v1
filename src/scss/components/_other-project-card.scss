@@ -17,7 +17,7 @@
         transition: transform .2s ease-out;
 
         &:hover {
-            transform: translateY(-3%);
+            transform: translateY(-3%) !important;
 
             .main__other-projects-card-heading {
                 color: $clr-accent-desat;
