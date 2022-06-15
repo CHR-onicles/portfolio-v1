@@ -13,7 +13,7 @@ window.addEventListener("load", _ => {
   setTimeout(_ => {
     preloader.classList.add("disappear");
     master();
-  }, 0); // todo: increase this later
+  }, 2000);
 });
 
 nav_toggle_btn.addEventListener("click", () => {

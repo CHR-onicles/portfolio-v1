@@ -160,10 +160,10 @@ const featured_projects_animation = () => {
 
         ScrollTrigger.create({
             trigger: project,
-            start: 'top 80%',
+            start: 'top 85%',
             onEnter: () => showCard(project),
             once: true,
-            markers: true,
+            // markers: true,
         });
     })
 }
