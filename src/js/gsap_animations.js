@@ -8,6 +8,7 @@ export const master = () => {
         .add(about_me_animation) // adding it here to prevent time delay (maybe not elegant)
         .add(tech_animation)
         .add(contact_animation)
+        .add(other_projects_animation)
 
     if (isMatchMediaMinWidth('62em')) { // >= 992px
         master_tl.add(hero_animation, ">2");
@@ -59,7 +60,7 @@ const footer_animation = () => {
     }
 }
 
-// animation for about me section
+// Animation for about me section
 const about_me_animation = () => {
     // For text part
     const show = (element) => {
@@ -134,6 +135,47 @@ const tech_animation = () => {
 // Animation for Featured projects section
 
 // Animation for Other projects section
+const other_projects_animation = () => {
+    const other_projects_reveal_items = document.querySelectorAll('.op-reveal');
+    const other_projects_section = document.getElementById('other-projects');
+    const projects_cards_row_1 = document.querySelectorAll('.row1-reveal')
+    const projects_cards_row_2 = document.querySelectorAll('.row2-reveal')
+    
+    const show = (elements) => {
+        gsap.fromTo(elements, { y: 15 }, { duration: 0.5, y: 0, opacity: 1, ease: 'expo', stagger: 0.2 });
+    }
+    const showCards = (elements) => {
+        gsap.fromTo(elements, { y: 15 }, { duration: 0.5, y: 0, opacity: 1, ease: 'power1', stagger: 0.15 });
+    }
+    
+    hide(other_projects_reveal_items);
+    ScrollTrigger.create({
+        trigger: other_projects_section,
+        start: 'top 70%',
+        onEnter: () => show(other_projects_reveal_items),
+        once: true,
+        // markers: true,
+    });
+    
+    hide(projects_cards_row_1);
+    ScrollTrigger.create({
+        trigger: projects_cards_row_1[0],
+        start: 'top 70%',
+        onEnter: () => showCards(projects_cards_row_1),
+        once: true,
+        // markers: true,
+    });
+
+    hide(projects_cards_row_2);
+    ScrollTrigger.create({
+        trigger: projects_cards_row_2[0],
+        start: 'top 70%',
+        onEnter: () => showCards(projects_cards_row_2),
+        once: true,
+        // markers: true,
+    });
+
+}
 
 // Animation for Contact section
 const contact_animation = () => {
