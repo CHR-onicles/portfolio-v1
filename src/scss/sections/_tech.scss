@@ -12,6 +12,36 @@
     margin-top: 18rem;
   }
 
+  .main__heading-wrapper {
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+
+    @include mq(medium) {
+      gap: 2rem;
+    }
+
+    .wrapper {
+      gap: 0.7rem;
+      // outline: 1px solid blue;
+    }
+
+    span:not(.main__numbered-heading) {
+      height: 1px;
+      flex-basis: 12%;
+      background: rgba($clr-light, 0.2);
+      
+      @include mq(small) {
+        flex-basis: 15%;
+      }
+
+      @include mq(large) {
+        flex-basis: 20%;
+      }
+
+    }
+  }
+
   &-list {
     flex-flow: row wrap;
     justify-content: center;
@@ -20,34 +50,33 @@
 
     @include mq(large) {
       min-width: 100%;
-      // outline: 1px solid;
     }
 
     &-item {
       position: relative;
       padding: 2rem;
       // outline: 1px solid red;
-      
+
       &:hover {
         .icon {
-            transform: scale(1.1);
+          transform: scale(1.1);
         }
       }
-      
+
       @include mq(large) {
         padding-inline: 4rem;
-    }
+      }
 
-    .icon {
+      .icon {
         width: 5rem;
         height: 5rem;
         transition: transform 0.3s ease;
-    }
-    
-    [class*="i-"] {
+      }
+
+      [class*="i-"] {
         position: absolute;
         background-color: rgba($clr-light, 0.1);
-        transition: background-color .5s ease;
+        transition: background-color 0.5s ease;
       }
 
       .i-left,
