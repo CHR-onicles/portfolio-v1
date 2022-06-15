@@ -34,11 +34,6 @@
       @include mq(small) {
         flex-basis: 15%;
       }
-
-      @include mq(large) {
-        flex-basis: 20%;
-      }
-
     }
   }
 
@@ -59,7 +54,7 @@
 
       &:hover {
         .icon {
-          transform: scale(1.1);
+          transform: scale(1.1) !important; // slapping !important here because js animation overrides this style
         }
       }
 
@@ -70,6 +65,7 @@
       .icon {
         width: 5rem;
         height: 5rem;
+        opacity: 0;
         transition: transform 0.3s ease;
       }
 
@@ -77,6 +73,7 @@
         position: absolute;
         background-color: rgba($clr-light, 0.1);
         transition: background-color 0.5s ease;
+        border-radius: 10px;
       }
 
       .i-left,
@@ -113,7 +110,7 @@
         bottom: 0;
 
         @include mq(small) {
-          background: rgba($clr-accent, 0.5);
+          // background: rgba($clr-accent, 0.5);
         }
       }
 

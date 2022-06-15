@@ -11,7 +11,7 @@
     &__social-list {
         justify-content: space-around;
         max-width: rem(300);
-        margin: 0 auto;
+        margin: 2rem auto 0;
 
         @include mq(medium) {
             position: fixed;
@@ -19,6 +19,7 @@
             gap: 1rem;
             left: $navbar-padding;
             bottom: $footer-social-vline-height;
+            margin-top: 0;
         }
 
         &-left-bar {
@@ -58,7 +59,11 @@
         font-size: rem(15);
         text-align: center;
         color: $clr-light;
-        margin: 1rem 0;
+        margin: 2rem 0 1rem;
+
+        @include mq(medium) {
+            margin-top: 5rem;
+        }
     }
     
     &__author-email {

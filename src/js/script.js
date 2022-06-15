@@ -1,4 +1,4 @@
-import { master, techGridAniamtion } from "./gsap_animations";
+import { master, techGridAnimation } from "./gsap_animations";
 
 const body = document.getElementById("body");
 const nav_toggle_btn = document.querySelector(".header__navbar-toggle-btn");
@@ -26,5 +26,5 @@ header_btns.forEach(btn => {
 
 
 tech_items.forEach((item, index) => {
-  item.addEventListener('mouseenter', () => techGridAniamtion(icon_colors[index]));
+  item.addEventListener('mouseenter', () => techGridAnimation(icon_colors[index]));
 })

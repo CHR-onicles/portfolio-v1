@@ -34,7 +34,6 @@
             url('../../assets/projects/polymorph.webp') center/cover no-repeat;
 
             @include mq(medium) {
-                margin-top: 0;
                 background: url('../../assets/projects/polymorph.webp') center/cover no-repeat;
             }
         }
@@ -128,7 +127,7 @@
         }
         @include mq(medium) {
             padding: 1rem 1.5rem 1rem 0;
-            width: 70%;
+            width: 60%;
             // outline: 2px solid red;
         }
     }
