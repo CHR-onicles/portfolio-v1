@@ -1,22 +1,28 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the What I've Built section of the site.
 // -----------------------------------------------------------------------------
-@use '../abstracts/mixins' as *;
-@use '../abstracts/functions' as *;
-@use '../abstracts/variables' as *;
-@use '../base/colors' as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions" as *;
+@use "../abstracts/variables" as *;
+@use "../base/colors" as *;
 
 .main__built {
-    margin-top: 15rem;
+  margin-top: 15rem;
 
-    @include mq(medium) {
-        margin-top: 18rem;
-    }
+  @include mq(medium) {
+    margin-top: 18rem;
+  }
 
-    &-tag {
-        display: block;
-        margin-top: 1.2rem;
-        font-size: rem(13);
-        color: $clr-accent;
+  &-tag {
+    display: block;
+    margin-top: 1.2rem;
+    font-size: rem(13);
+    color: $clr-accent;
+    overflow: hidden;
+
+    span {
+      display: block;
+      transform: translateY(100%);
     }
+  }
 }

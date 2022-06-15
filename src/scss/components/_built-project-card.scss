@@ -6,181 +6,269 @@
 @use "../abstracts/variables" as *;
 @use "../base/colors" as *;
 
+.main__built-project {
+  position: relative;
+  margin: 3rem 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
-.main__built-project{
-    position: relative;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    margin: 3rem 0;
-    
-    &:hover {
-        .main__built-project-title {
-            color: $clr-accent;
-        }
-
-        .main__built-project-img-wrapper {
-            filter: none;
-        }
+  &:hover {
+    .main__built-project-title {
+      color: $clr-accent;
     }
+
+    .main__built-project-img-wrapper {
+      filter: none;
+    }
+  }
+
+  @include mq(medium) {
+    box-shadow: none;
+    // outline: 1px solid blue;
+  }
+
+  // When scrolled into viewport
+  &.show {
+    .main__built-tag {
+      span {
+        animation: text-reveal 1s 0.3s $text-reveal-ease forwards;
+      }
+    }
+
+    .main__built-project {
+      &-img-wrapper {
+        opacity: 1;
+      }
+
+      &-title {
+        a {
+          animation: text-reveal 1s 0.7s $text-reveal-ease forwards;
+        }
+      }
+
+      &-desc,
+      &-stack-item,
+      &-footer-item {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    margin-top: 1.5rem;
+    .main__built-project-img-wrapper {
+      background: linear-gradient(
+          90deg,
+          rgba($clr-dark, 0.9),
+          rgba($clr-dark, 0.8)
+        ),
+        url("../../assets/projects/polymorph.webp") center/cover no-repeat;
+
+      @include mq(medium) {
+        background: url("../../assets/projects/polymorph.webp") center/cover
+          no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    .main__built-tag {
+      @include mq(medium) {
+        text-align: right;
+      }
+    }
+
+    .main__built-project {
+      &-title {
+        @include mq(medium) {
+          text-align: right;
+        }
+      }
+
+      &-img-wrapper {
+        background: linear-gradient(
+            90deg,
+            rgba($clr-dark, 0.9),
+            rgba($clr-dark, 0.8)
+          ),
+          url("../../assets/projects/chr-mart.webp") center / cover no-repeat;
+
+        @include mq(medium) {
+          left: 0;
+          right: initial;
+          background: url("../../assets/projects/chr-mart.webp") center/cover
+            no-repeat;
+        }
+      }
+
+      &-text-content {
+        @include mq(medium) {
+          padding-right: 0;
+          margin-left: auto;
+          // outline: 1px solid red;
+        }
+      }
+
+      &-desc {
+        @include mq(medium) {
+          text-align: right;
+        }
+      }
+
+      &-stack,
+      &-footer {
+        @include mq(medium) {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    .main__built-project-img-wrapper {
+      background: linear-gradient(
+          90deg,
+          rgba($clr-dark, 0.9),
+          rgba($clr-dark, 0.8)
+        ),
+        url("../../assets/projects/mountain-club.webp") center/cover no-repeat;
+
+      @include mq(medium) {
+        background: url("../../assets/projects/mountain-club.webp") center/cover
+          no-repeat;
+      }
+    }
+  }
+
+  &-img-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
 
     @include mq(medium) {
-        box-shadow: none;
-        // outline: 1px solid blue;
+      left: initial;
+      right: 0;
+      @include size(55%, 80%);
+      margin: auto 0;
+      border-radius: $border-radius;
+      overflow: hidden;
+      filter: sepia();
+      transition: filter 0.2s;
+      // outline: 1px solid red;
+    }
+  }
+
+  &-text-content {
+    padding: 1rem 1.5rem;
+    // outline: 1px solid red;
+
+    @include mq(small) {
+      padding: 3rem 2rem;
+      width: 90%;
+    }
+    @include mq(medium) {
+      padding: 1rem 1.5rem 1rem 0;
+      width: 60%;
+      // outline: 2px solid red;
+    }
+  }
+
+  &-title {
+    color: $clr-accent-desat;
+    margin-bottom: 1em;
+    font-size: clamp(rem(25), 5vw, rem(29));
+    overflow: hidden;
+
+    a {
+      display: block;
+      transform: translateY(100%);
+    }
+  }
+
+  &-desc {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s 1.5s ease-out, transform 0.4s 1.5s ease-out;
+
+    @include mq(medium) {
+      padding: 1rem 2rem 1rem 1.5rem;
+      border-radius: $border-radius;
+      background: $clr-dark-alt;
+    }
+  }
+
+  &-stack {
+    flex-flow: row wrap;
+    column-gap: 0.8em;
+    margin: 1.1em 0 0;
+    font-size: rem(14);
+
+    @include mq(small) {
+      margin-top: 1.6em;
     }
 
-    &:nth-child(2) {
-        margin-top: 1.5rem;
-        .main__built-project-img-wrapper {
-            background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .8)),
-            url('../../assets/projects/polymorph.webp') center/cover no-repeat;
+    &-item {
+      color: mix(black, $clr-light, 15%);
+      opacity: 0;
+      transform: translateY(5px);
 
-            @include mq(medium) {
-                background: url('../../assets/projects/polymorph.webp') center/cover no-repeat;
-            }
+      // map for transition delays for stack items
+      $nums: (
+        1: 1.9,
+        2: 2,
+        3: 2.1,
+      );
+      @each $key, $val in $nums {
+        &:nth-child(#{$key}) {
+          transition: opacity 0.3s calc($val * 1s),
+            transform 0.3s calc($val * 1s);
         }
-        
+      }
+    }
+  }
+
+  &-footer {
+    gap: 1rem;
+    margin: 1rem 0;
+
+    @include mq(small) {
+      margin-top: 1.2rem;
     }
 
-    &:nth-child(3) {
-        .main__built-tag{
-            @include mq(medium) {
-                text-align: right;
-            }
+    &-item {
+        opacity: 0;
+        transform: translateY(5px);
+
+      &:hover {
+        svg {
+          stroke: $clr-accent;
         }
+      }
+      svg {
+        width: rem(22);
+        stroke: $clr-light;
+        transition: stroke 0.2s;
+      }
 
-        .main__built-project {
-            &-title {
-                @include mq(medium) {
-                    text-align: right;
-                }
-            }
-
-            &-img-wrapper{
-                background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .8)),
-                url('../../assets/projects/chr-mart.webp') center / cover no-repeat;
-
-                @include mq(medium) {
-                    left: 0;
-                    right: initial;
-                    background: url('../../assets/projects/chr-mart.webp') center/cover no-repeat;
-                }
-            }
-
-            &-text-content {
-                @include mq(medium) {
-                    padding-right: 0;
-                    margin-left: auto;
-                    // outline: 1px solid red;
-                }
-            }
-
-            &-desc {
-                @include mq(medium) {
-                    text-align: right;
-                }
-            }
-
-            &-stack,
-            &-footer {
-                @include mq(medium) {
-                    justify-content: flex-end;
-                }
-            }
+      // map for transition delays for stack items
+      $nums: (
+        1: 2.5,
+        2: 2.6,
+      );
+      @each $key, $val in $nums {
+        &:nth-child(#{$key}) {
+          transition: opacity 0.3s calc($val * 1s),
+            transform 0.3s calc($val * 1s);
         }
+      }
     }
+  }
+}
 
-    &:nth-child(4) {
-        .main__built-project-img-wrapper {
-            background: linear-gradient(90deg, rgba($clr-dark, .9), rgba( $clr-dark, .8)),
-            url('../../assets/projects/mountain-club.webp') center/cover no-repeat;
-            
-            @include mq(medium) {
-                background: url('../../assets/projects/mountain-club.webp') center/cover no-repeat;
-            }
-        }
-    }
-
-    &-img-wrapper {
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-
-        @include mq(medium) {
-            left: initial;
-            right: 0;
-            @include size(55%, 80%);
-            margin: auto 0;
-            border-radius: $border-radius;
-            overflow: hidden;
-            filter: sepia();
-            transition: filter .2s;
-            // outline: 1px solid red;
-        }
-    }
-
-    &-text-content {
-        padding: 1rem 1.5rem;
-        // outline: 1px solid red;
-
-        @include mq(small) {
-            padding: 3rem 2rem;
-            width: 90%;
-        }
-        @include mq(medium) {
-            padding: 1rem 1.5rem 1rem 0;
-            width: 60%;
-            // outline: 2px solid red;
-        }
-    }
-
-    &-title {
-        color: $clr-accent-desat;
-        margin-bottom: 1em;
-        font-size: clamp(rem(25), 5vw, rem(29));
-    }
-
-    &-desc {
-        @include mq(medium) {
-            padding: 1rem 2rem 1rem 1.5rem;
-            border-radius: $border-radius;
-            background: $clr-dark-alt;
-        }
-    }
-
-    &-stack {
-        flex-flow: row wrap;
-        column-gap: .8em;
-        margin: 1.1em 0 0;
-        font-size: rem(14);
-
-        @include mq(small) {
-            margin-top: 1.6em;
-        }
-
-        &-item {
-            color: mix(black, $clr-light, 15%);
-        }
-    }
-
-    &-footer {
-        gap: 1rem;
-        margin: 1rem 0;
-
-        @include mq(small) {
-            margin-top: 1.2rem;
-        }
-        
-        &-item {
-
-            &:hover {
-                svg {
-                    stroke: $clr-accent;
-                }
-            }
-            svg {
-                width: rem(22);
-                stroke: $clr-light;
-                transition: stroke .2s;
-            }
-        }
-    }
+@keyframes text-reveal {
+  to {
+    transform: translateY(0%);
+  }
 }
