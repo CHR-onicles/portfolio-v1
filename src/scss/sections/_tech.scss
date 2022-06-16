@@ -50,7 +50,7 @@
 
     &-item {
       position: relative;
-      padding: 2rem;
+      padding: 1.5rem 2rem 1rem;
       // outline: 1px solid red;
 
       &:hover {
@@ -66,10 +66,25 @@
       }
 
       .icon {
-        width: 5rem;
-        height: 5rem;
+        width: 4.5rem;
+        height: 4.5rem;
         opacity: 0;
         transition: transform 0.3s ease;
+      }
+
+      p {
+        margin-top: 0.5rem;
+        font-size: rem(14);
+        text-align: center;
+      }
+      
+      &:nth-child(6) {
+        p {
+          margin-top: -1rem;
+        }
+        p:last-child {
+          margin-top: -0.2rem;
+        }
       }
 
       [class*="i-"] {
