@@ -36,9 +36,7 @@ const header_animation = () => {
 
 //animation for hero items
 const hero_animation = () => {
-    const hero_items = [
-        document.querySelectorAll("[class*='hero__']"),
-    ]
+    const hero_items = document.querySelectorAll("[class*='hero__']");
     let hero_tl = gsap.timeline();
     hero_tl.to(hero_items, { opacity: 1, duration: .4, y: 30, stagger: .2, ease: 'power1' })
 }
@@ -102,8 +100,6 @@ export const techGridAnimation = (color) => {
     const second_row_lines_for_4_per_row = document.querySelectorAll('.main__tech-list-item:nth-child(n+5):nth-child(-n+8) .i-bottom'); // selector from: (https://stackoverflow.com/a/28061560)
     const tl = gsap.timeline();
 
-    //todo: add event listener for window resize to reset the color of all lines
-
     if (isMatchMediaMinWidth('48em')) { // >= 768px
         tl.to(first_row_lines_for_4_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2' })
             .to(second_row_lines_for_4_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2', }, "");
@@ -115,6 +111,8 @@ export const techGridAnimation = (color) => {
         tl.to(middle_column_lines_for_2_per_row, { backgroundColor: color, duration: '0.4', stagger: '0.2' });
     }
 
+    // To change the color of all rows and columns because different 
+    // screen sizes have differently colored rows and columns.
     window.addEventListener('resize', () => {
         const all_colored_lines = [
             ...middle_column_lines_for_2_per_row,
