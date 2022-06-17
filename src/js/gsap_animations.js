@@ -136,7 +136,7 @@ const tech_animation = () => {
 
 
     const show = (elements) => {
-        gsap.fromTo(elements, { y: 10 }, { duration: 0.4, y: 0, opacity: 1, ease: 'expo', stagger: 0.1 });
+        gsap.fromTo(elements, { y: 0 }, { duration: 0.8, y: 0, opacity: 1, ease: 'expo', stagger: 0.1 }); //? May tweak this later
         if (isMatchMediaMinWidth('48em')) {
             const tl = gsap.timeline();
             tl.to(first_row_lines, { backgroundColor: 'rgba(254, 211, 103, 0.5)', duration: '0.4', stagger: '0.2' }, "")
