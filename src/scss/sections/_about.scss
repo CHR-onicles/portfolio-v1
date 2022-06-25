@@ -122,6 +122,7 @@
         }
     }
 
+    //? I don't need this asset so why is it here? and what piece of code does it affect?
     &-stack-list {
         @include width-min(100%, rem(300));
         margin-top: 1.2rem;
