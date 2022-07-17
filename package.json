@@ -5,6 +5,6 @@
   },
   "scripts": {
     "start": "parcel index.html --no-source-maps --open -p 3000",
-    "build": "parcel build index.html --no-source-maps --out-dir docs/ && cd docs && postcss *.css -u autoprefixer -r --no-map && cd.."
+    "build": "parcel build index.html --no-source-maps --out-dir public/ && cd public && postcss *.css -u autoprefixer -r --no-map && cd.."
   }
 }
