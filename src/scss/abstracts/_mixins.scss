@@ -25,7 +25,7 @@
 
 // Mixin for media queries
 @mixin mq($key){
-  @media screen and(min-width: map-get($breakpoints-up, $key)){
+  @media screen and (min-width: map-get($breakpoints-up, $key)){
     @content;
   }
 }
