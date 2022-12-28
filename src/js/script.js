@@ -28,3 +28,9 @@ header_btns.forEach(btn => {
 tech_items.forEach((item, index) => {
   item.addEventListener('mouseenter', () => techGridAnimation(icon_colors[index]));
 })
+
+const links = document.querySelectorAll("[href='#about-me']");
+console.log(links)
+links.forEach(link => {
+  link.addEventListener("click", () => splitbee.track("clicked about me"));
+})
