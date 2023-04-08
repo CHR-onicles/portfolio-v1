@@ -91,16 +91,19 @@
           rgba($clr-dark, 0.9),
           rgba($clr-dark, 0.8)
         ),
-        url("../../assets/projects/polymorph.webp") center/cover no-repeat;
+        url("../../assets/projects/we-africans-united.webp") center/cover
+          no-repeat;
 
       @include mq(medium) {
-        background: url("../../assets/projects/polymorph.webp") center/cover
-          no-repeat;
+        background: url("../../assets/projects/we-africans-united.webp")
+          center/cover no-repeat;
       }
     }
   }
 
   &:nth-child(3) {
+    margin-top: 1.5rem;
+
     .main__built-tag {
       @include mq(medium) {
         text-align: right;
@@ -120,12 +123,12 @@
             rgba($clr-dark, 0.9),
             rgba($clr-dark, 0.8)
           ),
-          url("../../assets/projects/chr-mart.webp") center / cover no-repeat;
+          url("../../assets/projects/polymorph.webp") center/cover no-repeat;
 
         @include mq(medium) {
           left: 0;
           right: initial;
-          background: url("../../assets/projects/chr-mart.webp") center/cover
+          background: url("../../assets/projects/polymorph.webp") center/cover
             no-repeat;
         }
       }
@@ -161,10 +164,10 @@
           rgba($clr-dark, 0.9),
           rgba($clr-dark, 0.8)
         ),
-        url("../../assets/projects/mountain-club.webp") center/cover no-repeat;
+        url("../../assets/projects/chr-mart.webp") center / cover no-repeat;
 
       @include mq(medium) {
-        background: url("../../assets/projects/mountain-club.webp") center/cover
+        background: url("../../assets/projects/chr-mart.webp") center/cover
           no-repeat;
       }
     }
@@ -262,12 +265,14 @@
         1: 2,
         2: 2.1,
         3: 2.2,
+        4: 2.3,
       );
 
       $nums-medium: (
         1: 1.5,
         2: 1.6,
         3: 1.7,
+        4: 1.8,
       );
 
       @each $key, $val in $nums {
