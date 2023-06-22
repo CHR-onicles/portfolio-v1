@@ -91,12 +91,11 @@
           rgba($clr-dark, 0.9),
           rgba($clr-dark, 0.8)
         ),
-        url("../../assets/projects/we-africans-united.webp") center/cover
-          no-repeat;
+        url("../../assets/projects/danielandshah.webp") center/cover no-repeat;
 
       @include mq(medium) {
-        background: url("../../assets/projects/we-africans-united.webp")
-          center/cover no-repeat;
+        background: url("../../assets/projects/danielandshah.webp") center/cover
+          no-repeat;
       }
     }
   }
@@ -123,13 +122,14 @@
             rgba($clr-dark, 0.9),
             rgba($clr-dark, 0.8)
           ),
-          url("../../assets/projects/polymorph.webp") center/cover no-repeat;
+          url("../../assets/projects/we-africans-united.webp") center/cover
+            no-repeat;
 
         @include mq(medium) {
           left: 0;
           right: initial;
-          background: url("../../assets/projects/polymorph.webp") center/cover
-            no-repeat;
+          background: url("../../assets/projects/we-africans-united.webp")
+            center/cover no-repeat;
         }
       }
 
@@ -164,10 +164,10 @@
           rgba($clr-dark, 0.9),
           rgba($clr-dark, 0.8)
         ),
-        url("../../assets/projects/chr-mart.webp") center / cover no-repeat;
+        url("../../assets/projects/polymorph.webp") center / cover no-repeat;
 
       @include mq(medium) {
-        background: url("../../assets/projects/chr-mart.webp") center/cover
+        background: url("../../assets/projects/polymorph.webp") center/cover
           no-repeat;
       }
     }
