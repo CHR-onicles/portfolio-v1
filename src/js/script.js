@@ -30,7 +30,7 @@ tech_items.forEach((item, index) => {
 })
 
 const links = document.querySelectorAll("[href='#about-me']");
-console.log(links)
+// console.log(links)
 links.forEach(link => {
   link.addEventListener("click", () => splitbee.track("clicked about me"));
 })
